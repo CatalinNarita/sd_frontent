@@ -1,3 +1,5 @@
+import {IProduct} from './app/app.datamodel';
+
 export default routesConfig;
 
 /** @ngInject */
@@ -13,5 +15,20 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvi
     .state('user', {
       url: '/user',
       component: 'user'
+    })
+    .state('product', {
+      url: '/products',
+      component: 'product'
+    })
+    .state('admin', {
+      url: '/admin',
+      component: 'admin'
+    })
+    .state('productDetails', {
+      url: '/product/details',
+      component: 'productDetails',
+      params: {
+        product: null
+      }
     });
 }

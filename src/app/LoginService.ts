@@ -12,8 +12,8 @@ export class LoginService {
     'ngInject';
   }
 
-  login() {
-
+  login(username) {
+    return this.$http.get(defaultUrl + '/user/get/' + username);
   }
 
   getDbRoles(user: IUser) {
@@ -25,7 +25,7 @@ export class LoginService {
   }
 
   private checkUserRole(user: IUser, role: IRole) {
-    role.roleName === 'ROLE_USER' ? this.$state.go('user') : this.$state.go('user');
+    role.roleName === 'ROLE_USER' ? this.$state.go('product') : this.$state.go('admin');
   }
 
 }

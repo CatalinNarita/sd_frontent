@@ -28,6 +28,7 @@
                    required>
           </div>
           <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" class="help-block">Password required!</p>
+          <p ng-if="$ctrl.invalidCredentials" style="color: red">{{$ctrl.invalidCredentials}}</p>
 
           <div class="form-group">
             <!-- Button -->

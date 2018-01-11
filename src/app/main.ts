@@ -11,6 +11,8 @@ export class LoginController {
   user: IUser | any;
   role: IRole | any;
 
+  invalidCredentials: string;
+
   constructor(private $http: IHttpService,
               private $state: StateService,
               private loginService: LoginService) {
@@ -18,10 +20,15 @@ export class LoginController {
   }
 
   login() {
-    this.$http.get(defaultUrl + '/user/get/' + this.username)
+    this.loginService.login(this.username)
       .then(response => {
         this.user = response.data;
-        this.loginService.getDbRoles(this.user);
+        if (this.user.password === this.password) {
+          this.loginService.getDbRoles(this.user);
+          this.invalidCredentials = '';
+        } else {
+          this.invalidCredentials = 'Wrong username or password!';
+        }
       });
   }
 

@@ -1,0 +1,20 @@
+<navbar itemCount="$ctrl.itemCount"></navbar>
+<div class="container">
+  <form class="form-inline">
+    <div class="form-group">
+      <label >Search</label>
+      <input type="text" ng-model="$ctrl.search" ng-change="$ctrl.updateSearchCriteria()" class="form-control" placeholder="Search">
+    </div>
+  </form>
+  <table class="table table-bordered table-striped">
+    <th>Name</th>
+    <th>Category</th>
+    <th>Price</th>
+    <tr ng-repeat="product in $ctrl.pager.items | filter: $ctrl.search">
+      <td><a href ng-click="$ctrl.goToProductDetails(product)">{{product.name}}</a></td>
+      <td>{{product.category}}</td>
+      <td>{{product.price}}</td>
+    </tr>
+  </table>
+  <pagination model="$ctrl.pager"></pagination>
+</div>

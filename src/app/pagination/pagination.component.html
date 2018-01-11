@@ -1,0 +1,10 @@
+<div ng-if="$ctrl.model.showPagination">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <ul uib-pagination boundary-links="true" total-items="$ctrl.model.totalItems"
+          items-per-page="$ctrl.model.itemsPerPage" ng-model="$ctrl.model.currentPage"
+          max-size="$ctrl.model.maxSize" ng-change="$ctrl.model.pageChanged()" class="pagination-sm"
+          previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+    </div>
+  </div>
+</div>
